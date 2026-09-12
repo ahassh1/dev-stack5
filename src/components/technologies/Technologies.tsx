@@ -23,7 +23,7 @@ const Technologies = ({ technologyPromise }: technologyProps) => {
        <div className="md:w-3/4 w-full">
          <ExploreTechnology technologies={technologies} />
        </div >
-       <div className="md:w-1/4 w-full"> 
+       <div className="md:w-1/4 w-full md:mt-8"> 
         <StackTechnology/>
         </div> 
      </div>
