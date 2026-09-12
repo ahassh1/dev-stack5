@@ -5,7 +5,7 @@ import bannerImg from "../assets/bannerImg.png";
 const Banner = () => {
   return (
 
-      <div className="container mx-auto flex flex-col items-center justify-between  px-3 py-13 md:flex-row md:px-0 gap-10">
+      <div className="container mx-auto flex flex-col items-center justify-between  px-3 py-16 md:flex-row md:px-0 gap-10">
     
         <div className="md:w-1/2">
 
