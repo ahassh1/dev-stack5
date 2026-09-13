@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, type Dispatch, type SetStateAction } from "react";
 import type { ItechType } from "../../types/TechType";
 import ExploreTechnology from "./ExploreTechnology";
 import StackTechnology from "./StackTechnology";
@@ -6,8 +6,9 @@ interface technologyProps {
   technologyPromise: Promise<ItechType[]>;
   handleAddToSelect:(technology:ItechType) => void;
   selectedTechnology:ItechType[]
+  setSelectedTechnology:Dispatch<SetStateAction<ItechType[]>>
 }
-const Technologies = ({ technologyPromise, handleAddToSelect, selectedTechnology }: technologyProps) => {
+const Technologies = ({ technologyPromise, handleAddToSelect, selectedTechnology, setSelectedTechnology }: technologyProps) => {
   const technologies = use(technologyPromise);
 
   return (
@@ -26,7 +27,7 @@ const Technologies = ({ technologyPromise, handleAddToSelect, selectedTechnology
          <ExploreTechnology technologies={technologies} handleAddToSelect={handleAddToSelect} />
        </div >
        <div className="md:w-1/4 w-full md:mt-8"> 
-        <StackTechnology  selectedTechnology={selectedTechnology}/>
+        <StackTechnology  selectedTechnology={selectedTechnology} setSelectedTechnology={setSelectedTechnology}/>
         </div> 
      </div>
       </div>

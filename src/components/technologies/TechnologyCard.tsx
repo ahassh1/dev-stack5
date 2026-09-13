@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import starImg from "../../assets/statImages.png";
 import type { ItechType } from "../../types/TechType";
@@ -9,7 +9,11 @@ interface TechnologyCardProps {
 }
 
 const TechnologyCard = ({ technology, handleAddToSelect }: TechnologyCardProps) => {
-
+   const [selected, setSelected]= useState(false)
+  const handleClick=() =>{
+      handleAddToSelect(technology)
+      setSelected(true)
+    }
   return (
     <div className="card bg-base-100 shadow-sm">
       <div className="card-body">
@@ -60,8 +64,12 @@ const TechnologyCard = ({ technology, handleAddToSelect }: TechnologyCardProps) 
 
         </div>
 
-        <button onClick={()=> handleAddToSelect(technology)} className="btn bg-gray-900 text-white btn-block rounded-lg mt-6 hover:bg-white hover:text-black">
-          Explore
+        <button disabled={selected} onClick={handleClick} className={`btn btn-block rounded-lg mt-6 text-white ${
+    selected
+      ? "cursor-not-allowed bg-gray-300 "
+      : "bg-gray-800 hover:bg-white hover:text-black"
+  }`}>
+          {selected ? "Selected": "Explore"}
         </button>
 
       </div>

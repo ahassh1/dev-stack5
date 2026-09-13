@@ -1,23 +1,39 @@
-import React from "react";
+import React, { type Dispatch, type SetStateAction } from "react";
 
 import type { ItechType } from "../../types/TechType";
+import { MdDelete } from "react-icons/md";
 
 interface StackTechnologyProps {
   selectedTechnology: ItechType[];
+  setSelectedTechnology:Dispatch<SetStateAction<ItechType[]>>
 }
 
-const StackTechnology = ({
-  selectedTechnology,
-}: StackTechnologyProps) => {
-  return (
-    <div className="bg-white rounded-xl shadow-sm p-4">
+const StackTechnology = ({ selectedTechnology, setSelectedTechnology }: StackTechnologyProps) => {
+      const handleRemoveTechnology = (technology:ItechType)=>{
+        const restTechnology = selectedTechnology.filter(selectedTechnology => selectedTechnology.name != technology.name)
+        setSelectedTechnology(restTechnology)
+      }
+   if (selectedTechnology.length === 0) {
+    return (
+      <div className="bg-white rounded-xl shadow-sm p-4">
+        <h2 className="text-xl font-bold text-gray-700">My Stack</h2>
 
-      <h2 className="text-xl font-bold text-gray-700">
-        My Stack
-      </h2>
+        <p className="text-[12px] text-gray-500 mt-4">
+          No technology selected yet
+        </p>
+
+        <p className="text-sm text-gray-600 text-center mt-4">
+          Your stack is empty
+        </p>
+      </div>
+    );
+  }
+
+     return (
+    <div className="bg-white rounded-xl shadow-sm p-4">
+      <h2 className="text-xl font-bold text-gray-700">My Stack</h2>
 
       <div className="mt-4 space-y-3">
-
         {selectedTechnology.map((technology) => (
           <div
             key={technology.id}
@@ -29,22 +45,34 @@ const StackTechnology = ({
               className="w-10 h-10 object-contain"
             />
 
-            <div>
-              <h3 className="font-semibold text-gray-700">
-                {technology.name}
-              </h3>
+            <div className="flex justify-between items-center w-full">
+              <div>
+                <h3 className="font-semibold text-gray-700">
+                  {technology.name}
+                </h3>
 
-              <p className="text-xs text-gray-400">
-                {technology.category}
-              </p>
+                <p className="text-xs text-gray-400">
+                  {technology.category}
+                </p>
+              </div>
+
+              <button
+                onClick={() => handleRemoveTechnology(technology)}
+                className="bg-pink-100 rounded-full cursor-pointer p-2 hover:bg-pink-200 transition"
+              >
+                <MdDelete className="text-pink-500 text-xl" />
+              </button>
             </div>
+             
           </div>
         ))}
-
       </div>
-
+       <button onClick={() => setSelectedTechnology([])}
+      className="btn text-pink-500 bg-white hover:bg-black hover:text-white rounded-md btn-sm w-full mt-4"
+    >
+      Remove All
+    </button>
     </div>
   );
 };
-
 export default StackTechnology;

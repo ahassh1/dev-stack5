@@ -27,7 +27,7 @@ function App() {
       <Navbar />
       <Banner />
       <Suspense fallback={<h1>Loading...</h1>}>
-        <Technologies selectedTechnology={selectedTechnology} technologyPromise={technologyPromise} handleAddToSelect={handleAddToSelect}/>
+        <Technologies selectedTechnology={selectedTechnology} setSelectedTechnology={setSelectedTechnology} technologyPromise={technologyPromise} handleAddToSelect={handleAddToSelect}/>
       </Suspense>
       <Footer/>
     </>
