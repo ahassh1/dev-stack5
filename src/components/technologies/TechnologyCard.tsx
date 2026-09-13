@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import starImg from "../../assets/statImages.png";
 import type { ItechType } from "../../types/TechType";
+import { toast } from "react-toastify";
 
 interface TechnologyCardProps {
   technology: ItechType;
@@ -13,6 +14,7 @@ const TechnologyCard = ({ technology, handleAddToSelect }: TechnologyCardProps) 
   const handleClick=() =>{
       handleAddToSelect(technology)
       setSelected(true)
+      toast.success(`${technology.name} your stack is added succesfully`)
     }
   return (
     <div className="card bg-base-100 shadow-sm">

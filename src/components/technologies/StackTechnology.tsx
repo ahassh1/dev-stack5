@@ -2,6 +2,7 @@ import React, { type Dispatch, type SetStateAction } from "react";
 
 import type { ItechType } from "../../types/TechType";
 import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 
 interface StackTechnologyProps {
   selectedTechnology: ItechType[];
@@ -12,6 +13,7 @@ const StackTechnology = ({ selectedTechnology, setSelectedTechnology }: StackTec
       const handleRemoveTechnology = (technology:ItechType)=>{
         const restTechnology = selectedTechnology.filter(selectedTechnology => selectedTechnology.name != technology.name)
         setSelectedTechnology(restTechnology)
+        toast.warning( `${technology.name} removed form the stack`)
       }
    if (selectedTechnology.length === 0) {
     return (
@@ -67,7 +69,9 @@ const StackTechnology = ({ selectedTechnology, setSelectedTechnology }: StackTec
           </div>
         ))}
       </div>
-       <button onClick={() => setSelectedTechnology([])}
+       <button onClick={() => {setSelectedTechnology([]) 
+        toast.error("All technology are removed from the stack")
+       }}
       className="btn text-pink-500 bg-white hover:bg-black hover:text-white rounded-md btn-sm w-full mt-4"
     >
       Remove All
