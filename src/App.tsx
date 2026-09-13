@@ -15,14 +15,12 @@ const technologyfetch = async (): Promise<ItechType[]> => {
 };
 
 function App() {
-  // const technologyPromise = technologyfetch();
   const [technologyPromise] = useState(() => technologyfetch())
   const [selectedTechnology, setSelectedTechnology] = useState<ItechType[]>([])
   
   const handleAddToSelect =(technology:ItechType)=>{
     setSelectedTechnology([...selectedTechnology, technology])
   }
-  console.log(selectedTechnology);
   return (
     <>
       <Navbar />

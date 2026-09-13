@@ -1,5 +1,3 @@
-import React from "react";
-
 import type { ItechType } from "../../types/TechType";
 import TechnologyCard from "./TechnologyCard";
 

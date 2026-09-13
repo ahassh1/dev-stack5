@@ -1,5 +1,3 @@
-import React from "react";
-
 import bannerImg from "../assets/bannerImg.png";
 
 const Banner = () => {
@@ -13,7 +11,7 @@ const Banner = () => {
             Build Your Ideeal
             <br />
 
-            <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">
               Development Stack
             </span>
           </h1>
@@ -27,7 +25,7 @@ const Banner = () => {
      
           <div className="mt-6 flex items-center gap-3">
 
-            <button className="cursor-pointer rounded-md bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] px-4 py-2 text-xs font-medium text-white hover:bg-[#FF9722]">
+            <button className="cursor-pointer rounded-md bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] px-4 py-2 text-xs font-medium text-white hover:bg-[#FF9722]">
               Explore Technologies
             </button>
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 import footerImg from "../assets/Background+Shadow.png";
 
 const Footer = () => {

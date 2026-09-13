@@ -1,4 +1,4 @@
-import React, { use, type Dispatch, type SetStateAction } from "react";
+import { use, type Dispatch, type SetStateAction } from "react";
 import type { ItechType } from "../../types/TechType";
 import ExploreTechnology from "./ExploreTechnology";
 import StackTechnology from "./StackTechnology";
@@ -17,7 +17,7 @@ const Technologies = ({ technologyPromise, handleAddToSelect, selectedTechnology
         <div>
           <h1 className="font-bold text-3xl my-2 md:text-4xl text-gray-700">
             Explore the {" "}
-            <span className="bg-gradient-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
+            <span className="bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Technologies</span>
           </h1>
           <p className="text-[11px] md:text-sm text-gray-500">Pick one technology per category to build your ideal stack.</p>
         </div>

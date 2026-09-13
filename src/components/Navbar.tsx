@@ -1,5 +1,3 @@
-import React from "react";
-
 import navImg from "../assets/Background+Shadow.png";
 
 import { RxHamburgerMenu } from "react-icons/rx";

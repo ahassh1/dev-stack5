@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 import starImg from "../../assets/statImages.png";
 import type { ItechType } from "../../types/TechType";

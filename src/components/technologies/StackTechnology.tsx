@@ -1,4 +1,4 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import  { type Dispatch, type SetStateAction } from "react";
 
 import type { ItechType } from "../../types/TechType";
 import { MdDelete } from "react-icons/md";
