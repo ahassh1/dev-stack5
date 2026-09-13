@@ -4,10 +4,12 @@ import ExploreTechnology from "./ExploreTechnology";
 import StackTechnology from "./StackTechnology";
 interface technologyProps {
   technologyPromise: Promise<ItechType[]>;
+  handleAddToSelect:(technology:ItechType) => void;
+  selectedTechnology:ItechType[]
 }
-const Technologies = ({ technologyPromise }: technologyProps) => {
+const Technologies = ({ technologyPromise, handleAddToSelect, selectedTechnology }: technologyProps) => {
   const technologies = use(technologyPromise);
-  console.log(technologies);
+
   return (
     <div className="bg-sky-100 py-8">
       <div className="mx-auto container px-3 md:px-0">
@@ -21,10 +23,10 @@ const Technologies = ({ technologyPromise }: technologyProps) => {
 
      <div className=" flex flex-col md:flex-row gap-4 mb-2 ">
        <div className="md:w-3/4 w-full">
-         <ExploreTechnology technologies={technologies} />
+         <ExploreTechnology technologies={technologies} handleAddToSelect={handleAddToSelect} />
        </div >
        <div className="md:w-1/4 w-full md:mt-8"> 
-        <StackTechnology/>
+        <StackTechnology  selectedTechnology={selectedTechnology}/>
         </div> 
      </div>
       </div>

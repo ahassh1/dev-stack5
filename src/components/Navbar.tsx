@@ -20,7 +20,7 @@ const Navbar = () => {
         </div>
 
         <div className="md:flex items-center gap-7 hidden">
-          <a href="#" className="text-[11px] text-[#D91B7E]">
+          <a href="" className="text-[11px] text-[#D91B7E]">
             Home
           </a>
 

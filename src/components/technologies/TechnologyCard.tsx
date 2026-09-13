@@ -5,9 +5,11 @@ import type { ItechType } from "../../types/TechType";
 
 interface TechnologyCardProps {
   technology: ItechType;
+  handleAddToSelect:(technology:ItechType) =>void
 }
 
-const TechnologyCard = ({ technology }: TechnologyCardProps) => {
+const TechnologyCard = ({ technology, handleAddToSelect }: TechnologyCardProps) => {
+
   return (
     <div className="card bg-base-100 shadow-sm">
       <div className="card-body">
@@ -58,7 +60,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
 
         </div>
 
-        <button className="btn bg-gray-900 text-white btn-block rounded-lg mt-6 hover:bg-white hover:text-black">
+        <button onClick={()=> handleAddToSelect(technology)} className="btn bg-gray-900 text-white btn-block rounded-lg mt-6 hover:bg-white hover:text-black">
           Explore
         </button>
 

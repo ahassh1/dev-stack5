@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
@@ -16,13 +16,18 @@ const technologyfetch = async (): Promise<ItechType[]> => {
 
 function App() {
   const technologyPromise = technologyfetch();
-
+  const [selectedTechnology, setSelectedTechnology] = useState<ItechType[]>([])
+  
+  const handleAddToSelect =(technology:ItechType)=>{
+    setSelectedTechnology([...selectedTechnology, technology])
+  }
+  console.log(selectedTechnology);
   return (
     <>
       <Navbar />
       <Banner />
       <Suspense fallback={<h1>Loading...</h1>}>
-        <Technologies technologyPromise={technologyPromise} />
+        <Technologies selectedTechnology={selectedTechnology} technologyPromise={technologyPromise} handleAddToSelect={handleAddToSelect}/>
       </Suspense>
       <Footer/>
     </>
